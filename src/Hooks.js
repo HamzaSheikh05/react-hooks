@@ -1,13 +1,30 @@
 import React, { Component, useState } from 'react';
 
-const HookCreation = () => {
-    const [counter, setCounter] = useState(5);
-    const handleClick = () => setCounter(counter * 2);
+const HookCreation = (props) => {
+    //const handleClick = () => setCounter(counter * 2);
     return(
-        <button onClick={handleClick}>
-            {counter}
+        <button onClick={props.onClickFunction}>
+            +1
         </button>
     )
 }
+const Display = (props) => {
+    return(
+        <div>
+            {props.message}
+        </div>
+    )
+}
 
-export default HookCreation;
+const Application = () => {
+    const [counter, setCounter] = useState(5);
+    const incrementCounter = () => setCounter(counter + 1);
+    return(
+        <div>
+            <HookCreation onClickFunction={incrementCounter}/>
+            <Display message={counter}/>
+        </div>
+    )
+}
+
+export default Application;
