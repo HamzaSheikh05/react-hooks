@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 const HookCreation = () => {
+    const [counter, setCounter] = useState(5);
     return(
-        <h1>Hello Human being</h1>
+        <button onClick={()=> setCounter(counter * 2)}>
+            {counter}
+        </button>
     )
 }
 
